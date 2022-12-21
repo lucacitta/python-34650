@@ -4,7 +4,7 @@ from django.urls import path
 from python_34650.views import hola_mundo, otra_mas, fecha_actual, vista_con_edad, \
     vista_con_template, saludo_desde_template
 
-from products.views import create_product, list_products
+from products.views import create_product, list_products, list_categories, create_category
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,5 +16,8 @@ urlpatterns = [
     path('saludo-desde-template/', saludo_desde_template),
 
     path('create-product/', create_product),
-    path('list-products/', list_products)
+    path('list-products/', list_products),
+
+    path('create-category/<str:name>/', create_category),
+    path('list-categories/', list_categories),
 ]
