@@ -17,4 +17,13 @@ def vista_con_edad(request, edad):
     return HttpResponse(f'Esto funciona? la edad es {edad}?')
 
 def vista_con_template(request):
-    return render(request, 'template.html',context={})
+    return render(request, 'template.html', context={})
+
+def saludo_desde_template(request):
+    context = {
+        'nombre':'Luca',
+        'edad':23,
+        'usa_lentes':True,
+        'lista_frutas': ['manzana','pera','banana','naranja'],
+    }
+    return render(request, 'saludo.html', context=context)

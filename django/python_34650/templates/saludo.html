@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola desde el template para {{nombre}}</h1>
+    <h2>Este es el HTML de saludo</h2>
+    <h3>{{nombre}} - {{edad}} - {{usa_lentes}}</h3>
+
+        <h2>Lista de frutas</h2>
+
+    {% for fruta in lista_frutas %}
+        {% if fruta == 'manzana' %}
+            <h3 style="color: red;"> {{fruta}}</h3>
+        {% elif fruta == 'pera' %}
+            <h3 style="color: green;" >{{fruta}}</h3>
+        {% elif fruta == 'banana' %}
+            <h3 style="color: yellow;">{{fruta}}</h3>
+        {% elif fruta == 'naranja' %}
+            <h3 style="color: orange;">{{fruta}}</h3>
+        {% else %}
+            <h3>{{fruta}}</h3>
+        {% endif %}
+    {% endfor %}
+
+
+
+</body>
+</html>
