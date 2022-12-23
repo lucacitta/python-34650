@@ -9,43 +9,45 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/products/list-products/">Listado de productos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled">Disabled</a>
+                    <a class="nav-link disabled">Disabled</a>
                 </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0">
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </div>
-          </nav>
-    </header>
+            </form>
+        </div>
+    </nav>
+</header>
 
 
 
@@ -53,13 +55,24 @@
 
     <h1>Hola desde el template de listado de productos</h1>
     {% for product in products %}
-        <p>El producto es: {{product.name}} </p>
-        <p>Su precio es: {{product.price}} </p>
-        {% if product.stock == True %}
-            <p>Actualmente hay stock</p>
-        {% else %}
-            <p>Actualmente, nos quedamos sin stock</p>
-        {% endif %}
+
+
+        <div class="card" style="width: 18rem;">
+            <img src="data:image/jpeg;base64,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" class="card-img-top">
+            <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Su precio es ${{product.price}}</p>
+            {% if product.stock == True %}
+                <p>Actualmente hay stock</p>
+            {% else %}
+                <p>Actualmente, nos quedamos sin stock</p>
+            {% endif %}
+            <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+        </div>
+
+
+
     {% endfor %}
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

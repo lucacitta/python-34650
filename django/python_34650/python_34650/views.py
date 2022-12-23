@@ -3,6 +3,9 @@ from django.shortcuts import render
 
 from datetime import datetime
 
+def index(request):
+    return render(request, 'index.html', context={})
+
 def hola_mundo(request):
     return HttpResponse("Hola mundo")
 

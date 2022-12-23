@@ -2,10 +2,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from python_34650.views import hola_mundo, otra_mas, fecha_actual, vista_con_edad, \
-    vista_con_template, saludo_desde_template
+    vista_con_template, saludo_desde_template, index
 
 
 urlpatterns = [
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('hola/', hola_mundo, name='hola_mundo'),
     path('otra/', otra_mas),
