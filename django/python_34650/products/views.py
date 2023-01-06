@@ -31,14 +31,14 @@ def create_product(request):
             }
             return render(request, 'products/create_product.html', context=context)
 
-
-
-
-
 def list_products(request):
-    all_products = Products.objects.all()
+    if 'search' in request.GET:
+        search = request.GET['search']
+        products = Products.objects.filter(name__icontains=search)
+    else:
+        products = Products.objects.all()
     context = {
-        'products':all_products,
+        'products':products,
     }
     return render(request, 'products/list_products.html', context=context)
 
