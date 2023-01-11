@@ -9,7 +9,7 @@
     <h1>Hola desde el template de listado de proveedores</h1>
     <h2>Crear nuevo prestador </h2> <a href="/providers/provider-create/" class="btn btn-primary">Crear</a>
 
-    {% for provider in providers %}
+    {% for provider in object_list %}
 
 
         <div class="card" style="width: 18rem;">
@@ -19,7 +19,9 @@
             <p class="card-text">Direccion: {{provider.address}}</p>
             <p>Telefono: {{provider.phone_number}}</p>
             <a href="/providers/provider-update/{{provider.id}}/" class="btn btn-primary">Actualizar</a>
-            </div>
+            <a href="/providers/provider-delete/{{provider.id}}/" class="btn btn-danger">Borrar</a>
+
+        </div>
         </div>
 
 

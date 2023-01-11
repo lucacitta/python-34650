@@ -1,3 +1,4 @@
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.shortcuts import render
 
 from providers.models import Provider
@@ -9,6 +10,17 @@ def providers_list(request):
         'providers':providers
     }
     return render(request, 'providers/providers-list.html', context=context)
+
+class ProvidersListView(ListView):
+    model = Provider
+    template_name = 'providers/providers-list.html'
+    queryset = Provider.objects.filter(is_active = True)
+
+
+
+
+
+
 
 def providers_create(request):
     if request.method == 'GET':
@@ -38,9 +50,19 @@ def providers_create(request):
             }
         return render(request, 'providers/provider-create.html', context=context)
 
+class ProviderCreateView(CreateView):
+    model = Provider
+    template_name = 'providers/provider-create.html'
+    fields = '__all__'
+    success_url = '/providers/providers-list/'
 
-def provider_update(request, id):
-    provider = Provider.objects.get(id=id)
+
+
+
+
+
+def provider_update(request, pk):
+    provider = Provider.objects.get(id=pk)
 
     if request.method == 'GET':
         context = {
@@ -76,3 +98,16 @@ def provider_update(request, id):
                 'form': ProviderForm()
             }
         return render(request, 'providers/provider-update.html', context=context)
+
+# class ProviderUpdateView(UpdateView)
+
+
+
+
+# def provider_delete(request, pk):     //provider.delete()
+
+class ProviderDeleteView(DeleteView):
+    model = Provider
+    template_name = 'providers/provider-delete.html'
+    success_url = '/providers/providers-list/'
+
