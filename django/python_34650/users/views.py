@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def login_view(request):
     if request.method == 'GET':
@@ -33,3 +33,22 @@ def login_view(request):
         }
         return render(request, 'users/login.html', context=context)
 
+def register(request):
+    if request.method == 'GET':
+        form = UserCreationForm()
+        context ={
+            'form':form
+        }
+        return render(request, 'users/register.html', context=context)
+
+    elif request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save() #al hacer el save, se crea el usuario
+            return redirect('login')
+        
+        context = {
+            'errors':form.errors,
+            'form':UserCreationForm()
+        }
+        return render(request, 'users/register.html', context=context)
