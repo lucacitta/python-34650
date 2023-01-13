@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -46,6 +47,7 @@ def create_category(request, name):
     Category.objects.create(name=name)
     return HttpResponse('Categoria creada')
 
+@login_required
 def list_categories(request):
     all_categories = Category.objects.all()
     context = {

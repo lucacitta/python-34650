@@ -1,4 +1,5 @@
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
 from providers.models import Provider
@@ -11,7 +12,7 @@ def providers_list(request):
     }
     return render(request, 'providers/providers-list.html', context=context)
 
-class ProvidersListView(ListView):
+class ProvidersListView(LoginRequiredMixin, ListView):
     model = Provider
     template_name = 'providers/providers-list.html'
     queryset = Provider.objects.filter(is_active = True)
