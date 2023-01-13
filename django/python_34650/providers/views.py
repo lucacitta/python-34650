@@ -83,11 +83,11 @@ def provider_update(request, pk):
     elif request.method == 'POST':
         form = ProviderForm(request.POST)
         if form.is_valid():
-            provider.name = form.cleaned_data['name'],
-            provider.address = form.cleaned_data['address'],
-            provider.phone_number = form.cleaned_data['phone_number'],
-            provider.email = form.cleaned_data['email'],
-            provider.condition = form.cleaned_data['condition'],
+            provider.name = form.cleaned_data['name']
+            provider.address = form.cleaned_data['address']
+            provider.phone_number = form.cleaned_data['phone_number']
+            provider.email = form.cleaned_data['email']
+            provider.condition = form.cleaned_data['condition']
             provider.save()
             
             context = {
