@@ -6,4 +6,14 @@
 
 {% block content %}
     <h1>Hola desde el indice</h1>
+
+    {{request.user}}
+
+
+
+
+    {% if message %}
+        <h2>{{message}}</h2>
+    {% endif %}
+    
 {% endblock %}
