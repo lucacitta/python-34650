@@ -1,6 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf.urls.static import static
+
+from python_34650.settings import MEDIA_ROOT, MEDIA_URL
+
+
 from python_34650.views import hola_mundo, otra_mas, fecha_actual, vista_con_edad, \
     vista_con_template, saludo_desde_template, index
 
@@ -19,5 +24,6 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
     path('providers/', include('providers.urls')),
     path('users/', include('users.urls')),
-    
-]
+
+] + static(MEDIA_URL, document_root = MEDIA_ROOT)
+

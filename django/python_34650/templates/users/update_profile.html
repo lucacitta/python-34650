@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Actualizacion de perfil de usuario
+{% endblock %}
+
+{% block content %}
+    <h1>Cambio de datos</h1>
+
+
+
+    {% if form %}
+
+        <form action="" method="POST" enctype="multipart/form-data" >
+
+            {% csrf_token %}
+
+            <table>
+                {{form.as_table}}
+            </table>
+
+
+            <input type="submit" value="Actualizar">
+        </form>
+    {% endif %}
+
+    {% if errors %}
+        {{errors}}
+    {% endif %}
+
+
+{% endblock %}
